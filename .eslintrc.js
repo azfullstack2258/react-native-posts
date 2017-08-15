@@ -5,5 +5,12 @@ module.exports = {
   },
   rules: {
     'react/jsx-filename-extension': 'off',
+    'comma-dangle': ['error', {
+      arrays: 'always-multiline',
+      objects: 'always-multiline',
+      imports: 'never',
+      exports: 'never',
+      functions: 'never',
+    }],
   },
 };
