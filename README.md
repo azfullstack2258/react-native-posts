@@ -24,3 +24,7 @@ name, description, language, and forks count.
 
 Add buttons for each language type. Make clicking on a language button filter
 the list by type.
+
+Environment
+-----------
+You can use any stable version of Node JS.
