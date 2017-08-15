@@ -7,8 +7,7 @@ With  the provided express framework, implement the `/repos` API endpoint. The
 endpoint should aggregate GitHub repository data from the following sources:
 
  - https://api.github.com/users/silverorange/repos
- - the provided JSON file
- - the provided SQLite database
+ - the provided JSON file (in `data/repos.json`)
  
 The API endpoint should only return repositories where `repository.fork` is
 `false`.
