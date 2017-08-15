@@ -15,6 +15,14 @@ The API endpoint should only return repositories where `repository.fork` is
 The API endpoint should return JSON encoded data with a content-type of
 `application/json`.
 
+### Run
+
+```sh
+cd api/
+yarn install
+yarn start
+```
+
 React
 -----
 Using the provided create-react-app base, fetch repo data from the express
@@ -23,6 +31,14 @@ name, description, language, and forks count.
 
 Add buttons for each language type. Make clicking on a language button filter
 the list by type.
+
+### Run
+
+```sh
+cd web/
+yarn install
+yarn start
+```
 
 Environment
 -----------
