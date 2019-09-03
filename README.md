@@ -29,11 +29,6 @@ yarn install
 yarn start
 ```
 
-### Testing
-
-Implement basic functional tests using jest for the endpoint. Jest is installed
-and can be run from the `api/` folder with `yarn test`.
-
 React
 -----
 Using the provided `create-react-app` base, fetch repo data from the Express
