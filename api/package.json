@@ -5,7 +5,10 @@
   "private": true,
   "scripts": {
     "start": "ts-node-dev -- ./src/index.ts",
-    "test": "node -e \"console.log('No tests yet!')\""
+    "test": "node -e \"console.log('No tests yet!')\"",
+    "lint": "tslint --project .",
+    "prettier": "prettier --config .prettierrc.json --list-different 'src/**/*.{ts,tsx}'",
+    "prettier-write": "prettier --config .prettierrc.json --write 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "cors": "^2.8.3",

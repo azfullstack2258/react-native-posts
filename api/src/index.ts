@@ -8,23 +8,23 @@ const debug = createDebug('api-server');
 /**
  * Normalize a port into a number, string, or false.
  *
- * @param {string|number} port
+ * @param {string|number} val
  *
  * @return {number|string|boolean} - named pipe, port number, or false if port
  *         could not be normalized.
  */
 function normalizePort(val: string | number): number | string | boolean {
-  let port: number;
+  let parsedPort: number;
 
   if (typeof val === 'string') {
-    port = Number.parseInt(val, 10);
+    parsedPort = Number.parseInt(val, 10);
 
-    if (isNaN(port)) {
+    if (isNaN(parsedPort)) {
       // named pipe
       return val;
     }
   } else {
-    port = val;
+    parsedPort = val;
   }
 
   if (port >= 0) {
