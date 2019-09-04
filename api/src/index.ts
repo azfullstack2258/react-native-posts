@@ -27,8 +27,8 @@ function normalizePort(val: string | number): number | string | boolean {
     parsedPort = val;
   }
 
-  if (port >= 0) {
-    return port;
+  if (parsedPort >= 0) {
+    return parsedPort;
   }
 
   return false;
