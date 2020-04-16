@@ -114,20 +114,4 @@ const newConfig = Object.assign({}, config, {
   }),
 });
 
-// Define Cypress globals for files in Cypress directory.
-newConfig.overrides.push({
-  files: ['cypress/**/*.js?(x)'],
-  env: {
-    browser: true,
-    commonjs: true,
-    es6: true,
-    mocha: true,
-    node: true,
-  },
-  globals: {
-    cy: 'readonly',
-    Cypress: 'readonly',
-  },
-});
-
 module.exports = newConfig;
