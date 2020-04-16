@@ -6,8 +6,8 @@ position as a developer at silverorange. We are interested to see how you
 work as well, as what your final results are; include useful Git commit
 messages and comments where you think your code may be unclear.
 
-Express Backend
----------------
+Express Backend (/api)
+----------------------
 With the provided Express framework, implement the `/repos` API endpoint. The
 endpoint should aggregate GitHub repository data from the following sources:
 
@@ -29,8 +29,8 @@ yarn install
 yarn start
 ```
 
-React
------
+React (/web)
+------------
 Using the provided `create-react-app` base, fetch repo data from the Express
 endpoint created above. Display a list of repositories. Include the repository
 name, description, language, and forks count.
