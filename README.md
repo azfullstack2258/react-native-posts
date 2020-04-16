@@ -8,20 +8,14 @@ messages and comments where you think your code may be unclear.
 
 Express Backend (/api)
 ----------------------
-With the provided Express framework, implement the `/repos` API endpoint. The
-endpoint should aggregate GitHub repository data from the following sources:
+For this exercise a pre-built Express application is provided. The application
+runs by default on `localhost:4000` and has the following endpoints:
 
- - https://api.github.com/users/silverorange/repos
- - the provided JSON file (in `data/repos.json`). Assume this file can change
-   while the service is running.
- 
-The API endpoint should only return repositories where `repository.fork` is
-`false`.
+ - `http://localhost:4000/repos` - returns a JSON-encoded array of repositories
+  from https://api.github.com/users/silverorange/repos. Only repositories where
+  `repository.fork` is `false` are included.
 
-The API endpoint should return JSON encoded data with a content-type of
-`application/json`.
-
-### Run
+### Runing the Express Application
 
 ```sh
 cd api/
@@ -29,11 +23,14 @@ yarn install
 yarn start
 ```
 
+You can verify the API is working by visiting http://localhost:4000/repos in
+your browser or another HTTP client.
+
 React (/web)
 ------------
-Using the provided `create-react-app` base, fetch repo data from the Express
-endpoint created above. Display a list of repositories. Include the repository
-name, description, language, and forks count.
+Using the provided `create-react-app` base, fetch repo data from the provided
+Express API. Display a list of repositories. Include the repository name,
+description, language, and forks count.
 
 Add buttons for each language type. Make clicking on a language button filter
 the list by type.
