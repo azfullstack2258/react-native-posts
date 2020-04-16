@@ -35,8 +35,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/**/*.{ts,tsx}'",
-    "prettier": "prettier --config .prettierrc.json --list-different 'src/**/*.{scss,css,ts,tsx,svg}'",
-    "prettier-write": "prettier --config .prettierrc.json --write 'src/**/*.{scss,css,ts,tsx,svg}'"
+    "lint": "eslint 'src/**/*.{js,ts,jsx,tsx}'",
+    "prettier": "prettier --config .prettierrc.json --list-different 'src/**/*.{scss,css,js,ts,jsx,tsx,svg}'",
+    "prettier-write": "prettier --config .prettierrc.json --write 'src/**/*.{scss,css,js,ts,jsx,tsx,svg}'"
   }
 }
