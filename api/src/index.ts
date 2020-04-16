@@ -8,10 +8,9 @@ const debug = createDebug('api-server');
 /**
  * Normalize a port into a number, string, or false.
  *
- * @param {string|number} val
+ * @param val
  *
- * @return {number|string|boolean} - named pipe, port number, or false if port
- *         could not be normalized.
+ * @return named pipe, port number, or false if port could not be normalized.
  */
 function normalizePort(val: string | number): number | string | boolean {
   let parsedPort: number;
