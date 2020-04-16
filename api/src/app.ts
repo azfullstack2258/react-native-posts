@@ -6,7 +6,7 @@ import { AppError } from './typings/AppError';
 // CORS header configuration
 const corsOptions = {
   methods: 'GET',
-  allowedHeaders: 'Content-Type,Authorization'
+  allowedHeaders: 'Content-Type,Authorization',
 };
 
 export const app = express();
@@ -22,7 +22,7 @@ app.use(
 
     const formattedError: { status: number; message: string } = {
       status,
-      message: err.message
+      message: err.message,
     };
 
     res.status(status);
