@@ -4,7 +4,7 @@
   "description": "Example API server",
   "private": true,
   "scripts": {
-    "start": "ts-node-dev -- ./src/index.ts",
+    "start": "DEBUG=api ts-node-dev -- ./src/index.ts",
     "test": "node -e \"console.log('No tests yet!')\"",
     "lint": "eslint 'src/**/*.{js,ts}'",
     "prettier": "prettier --config .prettierrc.json --list-different 'src/**/*.{ts,tsx}'",
