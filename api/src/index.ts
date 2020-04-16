@@ -19,7 +19,7 @@ function normalizePort(val: string | number): number | string | boolean {
   if (typeof val === 'string') {
     parsedPort = Number.parseInt(val, 10);
 
-    if (isNaN(parsedPort)) {
+    if (Number.isNaN(parsedPort)) {
       // named pipe
       return val;
     }
