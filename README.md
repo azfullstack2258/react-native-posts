@@ -27,7 +27,8 @@ formatted Markdown.
 
 Environment
 -----------
-You can use any stable version of Node JS.
+You can use any stable version of Node JS. The base project is written using
+TypeScript but you may use vanilla JavaScript to complete the tasks.
 
 Coding Standard
 ---------------
