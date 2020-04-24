@@ -56,7 +56,8 @@ you may update it to use NPM if that is your preference.
 Commits
 -------
 Your commit history is important to us! Try to make meaningful commit messages
-that show your progress.
+that show your progress. Remember to not include your name or any other
+self-identifying information in your commit messages.
 
 Getting Started With the Express Backend (/api)
 -----------------------------------------------
