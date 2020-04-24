@@ -32,13 +32,8 @@ TypeScript but you may use vanilla JavaScript to complete the tasks.
 
 Coding Standard
 ---------------
-Please use [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/)
-for your code. The project is set up to lint your code using:
-```sh
-yarn lint
-```
-
-If your editor is not already configured to use Prettier, you can format code
+Please use [ [Prettier](https://prettier.io/)
+for your code. If your editor is not already configured to use Prettier, you can format code
 in the project using:
 ```sh
 yarn prettier-write
@@ -75,14 +70,16 @@ yarn start
 You can verify the API is working by visiting http://localhost:4000/posts in
 your browser or another HTTP client.
 
-Getting Started with the React Frontend (/web)
-----------------------------------------------
-The React frontend is a bare create-react-app.
+Getting Started with the React Native Frontend (/native)
+--------------------------------------------------------
+The React Native frontend is a bare Expo application. You will need the Expo
+tools installed to work on the app. See https://docs.expo.io/ for instructions
+on how to install the Expo CLI tools.
 
-### Running the React Application
+### Running the React Native Application
 
 ```sh
-cd web/
+cd native/
 yarn install
 yarn start
 ```
