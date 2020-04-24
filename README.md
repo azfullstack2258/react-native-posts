@@ -20,10 +20,9 @@ Using the provided Expo application in `/native`:
     a new screen showing the formatted post body and title.
  6. Include some platform-specific variation between iOS and Android on either
     the main screen or the post screen.
-
- 6. Implement basic snapshot regression tests tests using Jest for your
-    components. Jest is installed by create-react-app and can be run from the
-    `web/` folder with `yarn test`.
+ 7. Implement basic snapshot regression tests tests using Jest for your
+    components. Jest is installed in the Expo project and can be run from the
+    `native/` folder with `yarn test`.
 
 The post body is formatted as Markdown and the rendered page should use the
 formatted Markdown.
