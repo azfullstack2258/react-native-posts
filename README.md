@@ -12,7 +12,7 @@ reviewing.
 
 Tasks
 -----
-### 1 Expo
+### (A) Expo
 
 Using the provided Expo application in `/native`:
 
@@ -34,7 +34,7 @@ Using the provided Expo application in `/native`:
 The post body is formatted as Markdown and the post screen should use the
 formatted Markdown.
 
-### 2 Code Review
+### (B) Code Review
 
 Using the sample application in `/review`:
 
