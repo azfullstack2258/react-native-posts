@@ -34,7 +34,7 @@ TypeScript but you may use vanilla JavaScript to complete the tasks.
 
 Coding Standard
 ---------------
-Please use [ [Prettier](https://prettier.io/)
+Please use [Prettier](https://prettier.io/)
 for your code. If your editor is not already configured to use Prettier, you can format code
 in the project using:
 ```sh
