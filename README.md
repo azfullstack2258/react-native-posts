@@ -6,6 +6,10 @@ position as a React Native developer at silverorange. We are interested to see
 how you work as well, as what your final results are; include useful Git commit
 messages and comments where you think your code may be unclear.
 
+Please do not include your name or any other self-identifying information in
+code or commit messages as silverorange will anonymize your work before
+reviewing.
+
 Tasks
 -----
 Using the provided Expo application in `/native`:
