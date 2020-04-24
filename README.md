@@ -1,23 +1,26 @@
-silverorange React Developer Assessment
-=======================================
+silverorange React Native Developer Assessment
+==============================================
 
 This exercise is designed to assess how you approach tasks required in your
-position as a Reacgt developer at silverorange. We are interested to see how
-you work as well, as what your final results are; include useful Git commit
+position as a React Native developer at silverorange. We are interested to see
+how you work as well, as what your final results are; include useful Git commit
 messages and comments where you think your code may be unclear.
 
 Tasks
 -----
-Using the provided `create-react-app` base in `/web`:
+Using the provided Expo application in `/native`:
 
  1. Fetch post data from the provided Express API.
  2. Display a list of posts. Include the post title, summary, author, and
     publish date in the list.
  3. The list of posts should be displayed in reverse chronological order.
- 4. Add buttons for each author. Make clicking on an author button filter
+ 4. Add buttons for each author. Make touching an author button filter
     the list of posts by author.
- 5. Make the title of each post in the list clickable. When you click a post
-    title, display the formatted post body and title.
+ 5. Make each post in the list touchable. When you touch a post, navigate to
+    a new screen showing the formatted post body and title.
+ 6. Include some platform-specific variation between iOS and Android on either
+    the main screen or the post screen.
+
  6. Implement basic snapshot regression tests tests using Jest for your
     components. Jest is installed by create-react-app and can be run from the
     `web/` folder with `yarn test`.
@@ -83,3 +86,6 @@ cd native/
 yarn install
 yarn start
 ```
+
+This will start the web console where you may launch the application on iOS,
+Android, or Web.
