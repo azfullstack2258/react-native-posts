@@ -12,6 +12,8 @@ reviewing.
 
 Tasks
 -----
+### Expo
+
 Using the provided Expo application in `/native`:
 
  1. Fetch post data from the provided Express API.
@@ -31,6 +33,16 @@ Using the provided Expo application in `/native`:
 
 The post body is formatted as Markdown and the post screen should use the
 formatted Markdown.
+
+### Code Review
+
+Using the sample application in `/review`:
+
+ 1. Review the React Native code.
+ 2. Make suggestions on how to example code could be improved. For this
+    exercise your suggestions may apply to an entire application, file, or line.
+    If appropriate, please prefix your suggestions with `filename:line` so we
+    know to what code you are referring.
 
 Environment
 -----------
