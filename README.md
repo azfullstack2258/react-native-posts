@@ -14,8 +14,8 @@ Using the provided Expo application in `/native`:
  2. Display a list of posts. Include the post title, summary, author, and
     publish date in the list.
  3. The list of posts should be displayed in reverse chronological order.
- 4. Add buttons for each author. Make touching an author button filter
-    the list of posts by author.
+ 4. Also list each unique author. Make touching an author filter the list of
+    posts by the selected author.
  5. Make each post in the list touchable. When you touch a post, navigate to
     a new screen showing the formatted post body and title.
  6. Include some platform-specific variation between iOS and Android on either
@@ -24,7 +24,7 @@ Using the provided Expo application in `/native`:
     components. Jest is installed in the Expo project and can be run from the
     `native/` folder with `yarn test`.
 
-The post body is formatted as Markdown and the rendered page should use the
+The post body is formatted as Markdown and the post screen should use the
 formatted Markdown.
 
 Environment
