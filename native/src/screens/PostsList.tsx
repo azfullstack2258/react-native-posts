@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import PostListItem from '../components/PostListItem';
 import AuthorCheckBox from '../components/AuthorCheckBox';
 import { loadPosts } from '../redux/reducers/post';
-import { getAuthors } from '../selectors';
+import { getAuthors, getFilteredPosts } from '../selectors';
 // Import types
 import { RootState } from '../redux/reducers';
 import { Post, Author } from '../util/types';
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
 
 const mapStateToProps = (state: RootState) => ({
   isLoading: state.post.isLoading,
-  posts: state.post.posts,
+  posts: getFilteredPosts(state),
   authors: getAuthors(state),
 });
 
