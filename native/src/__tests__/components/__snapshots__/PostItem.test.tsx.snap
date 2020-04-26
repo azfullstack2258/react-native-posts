@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Post Item can render post item 1`] = `
+<View
+  accessible={true}
+  focusable={true}
+  isTVSelectable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "borderBottomColor": "#e0e0e0",
+      "borderBottomWidth": 1,
+      "borderStyle": "solid",
+      "opacity": 1,
+      "paddingHorizontal": 20,
+      "paddingVertical": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "fontSize": 20,
+        "fontWeight": "500",
+      }
+    }
+  >
+    CQB
+  </Text>
+  <Text
+    style={
+      Object {
+        "fontSize": 10,
+        "fontStyle": "italic",
+      }
+    }
+  >
+    Jeff Woolnough, 2020/04/26
+  </Text>
+</View>
+`;
