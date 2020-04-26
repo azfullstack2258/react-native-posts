@@ -21,11 +21,10 @@ class AuthorCheckBox extends React.Component<AuthorCheckBoxProps> {
 
   render() {
     const { info, isChecked } = this.props;
-    const { id, name } = info;
+    const { name } = info;
 
     return (
       <CheckBox
-        key={id}
         containerStyle={styles.container}
         title={name}
         checked={isChecked}

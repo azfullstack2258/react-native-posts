@@ -3,7 +3,7 @@ import { Text, View, FlatList, StyleSheet, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
 
-import PostListItem from '../components/PostListItem';
+import PostItem from '../components/PostItem';
 import AuthorCheckBox from '../components/AuthorCheckBox';
 import { loadPosts } from '../redux/reducers/post';
 import { toggleAuthorSelectStatus } from '../redux/reducers/filter';
@@ -50,7 +50,7 @@ class PostsList extends React.Component<IPostsListProps> {
     const { id, title, publishedAt, author } = item;
     const { name } = author;
     return (
-      <PostListItem
+      <PostItem
         id={id}
         title={title}
         publishedAt={publishedAt}
