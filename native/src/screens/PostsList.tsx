@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Text, View, FlatList, StyleSheet } from 'react-native';
-import { connect, useSelector } from 'react-redux';
+import { connect } from 'react-redux';
 
 import PostListItem from '../components/PostListItem';
+import AuthorCheckBox from '../components/AuthorCheckBox';
 import { loadPosts } from '../redux/reducers/post';
 import { getAuthors } from '../selectors';
 // Import types
@@ -41,7 +42,9 @@ class PostsList extends React.Component<IPostsListProps> {
 
   postKeyExtractor = ({ id }: Post) => id;
 
-  renderAuthor = ({ id, name }: Author) => <Text key={id}>{name}</Text>;
+  renderAuthor = ({ id, name }: Author) => (
+    <AuthorCheckBox key={id} info={{ id, name }} />
+  );
 
   render() {
     const { isLoading, posts, authors } = this.props;
@@ -51,7 +54,10 @@ class PostsList extends React.Component<IPostsListProps> {
         {isLoading && <Text>Loading...</Text>}
         {!isLoading && (
           <>
-            {authors.map(this.renderAuthor)}
+            <View>
+              <Text>Filter by authors</Text>
+              {authors.map(this.renderAuthor)}
+            </View>
             <FlatList
               data={posts}
               renderItem={this.renderPostListItem}
