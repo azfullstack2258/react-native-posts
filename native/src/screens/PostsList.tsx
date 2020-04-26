@@ -1,16 +1,20 @@
 import React from 'react';
-import { Text, View, FlatList, StyleSheet } from 'react-native';
+import { Text, View, FlatList, StyleSheet, Platform } from 'react-native';
 import { connect } from 'react-redux';
 import { StackNavigationProp } from '@react-navigation/stack';
 
 import PostListItem from '../components/PostListItem';
 import AuthorCheckBox from '../components/AuthorCheckBox';
 import { loadPosts } from '../redux/reducers/post';
-import { getAuthors, getFilteredPosts } from '../selectors';
+import { toggleAuthorSelectStatus } from '../redux/reducers/filter';
+import { getAuthors, getFilteredPosts, getSelectedAuthors } from '../selectors';
+
 // Import types
 import { RootState } from '../redux/reducers';
 import { Post, Author } from '../util/types';
 import { RootStackParamList } from '../App';
+
+const isIos = Platform.OS === 'ios';
 
 type PostsListScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
@@ -19,9 +23,11 @@ type PostsListScreenNavigationProp = StackNavigationProp<
 interface IPostsListProps {
   isLoading: boolean;
   posts: Post[];
-  loadPosts: Function;
   authors: Author[];
+  selectedAuthors: string[];
   navigation: PostsListScreenNavigationProp;
+  loadPosts: () => void;
+  toggleAuthorSelectStatus: (id: string) => void;
 }
 
 class PostsList extends React.Component<IPostsListProps> {
@@ -35,13 +41,14 @@ class PostsList extends React.Component<IPostsListProps> {
     navigation.navigate('PostDetail', { postId: id, title });
   };
 
+  handleAuthorSelectChange = (id: string) => {
+    const { toggleAuthorSelectStatus } = this.props;
+    toggleAuthorSelectStatus(id);
+  };
+
   renderPostListItem = ({ item }: any) => {
-    const {
-      id,
-      title,
-      publishedAt,
-      author: { name },
-    } = item;
+    const { id, title, publishedAt, author } = item;
+    const { name } = author;
     return (
       <PostListItem
         id={id}
@@ -55,17 +62,26 @@ class PostsList extends React.Component<IPostsListProps> {
 
   postKeyExtractor = ({ id }: Post) => id;
 
-  renderAuthor = ({ id, name }: Author) => (
-    <AuthorCheckBox key={id} info={{ id, name }} />
-  );
+  renderAuthor = ({ id, name }: Author) => {
+    const { selectedAuthors } = this.props;
+    return (
+      <AuthorCheckBox
+        key={id}
+        info={{ id, name }}
+        isChecked={selectedAuthors.includes(id)}
+        onPress={this.handleAuthorSelectChange}
+      />
+    );
+  };
 
   render() {
     const { isLoading, posts, authors } = this.props;
 
     return (
       <View style={styles.container}>
-        {isLoading && <Text>Loading...</Text>}
-        {!isLoading && (
+        {isLoading ? (
+          <Text>Loading...</Text>
+        ) : (
           <>
             <View style={styles.filterSection}>
               <View style={styles.sectionHeader}>
@@ -127,10 +143,12 @@ const mapStateToProps = (state: RootState) => ({
   isLoading: state.post.isLoading,
   posts: getFilteredPosts(state),
   authors: getAuthors(state),
+  selectedAuthors: getSelectedAuthors(state),
 });
 
 const mapDispatchToProps = {
   loadPosts,
+  toggleAuthorSelectStatus,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostsList);

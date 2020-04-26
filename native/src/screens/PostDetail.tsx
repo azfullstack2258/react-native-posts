@@ -1,11 +1,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { View, Text, StyleSheet } from 'react-native';
-import { RouteProp } from '@react-navigation/native';
 import Markdown from 'react-native-markdown-renderer';
 import moment from 'moment';
 
-import { RootStackParamList, PostDetailScreenRouteProp } from '../App';
+import { PostDetailScreenRouteProp } from '../App';
 import { getPosts } from '../selectors';
 import { Post } from '../util/types';
 
@@ -37,9 +36,9 @@ const PostDetail: React.FC<PostDetailScreenProps> = ({ route }) => {
   return (
     <View style={styles.container}>
       <View style={styles.authorSection}>
-        <Text style={styles.author}>{`${name}, ${moment(publishedAt).format(
-          'YYYY/MM/DD'
-        )}`}</Text>
+        <Text style={styles.author}>
+          {`${name}, ${moment(publishedAt).format('YYYY/MM/DD')}`}
+        </Text>
       </View>
       <Markdown>{body}</Markdown>
     </View>

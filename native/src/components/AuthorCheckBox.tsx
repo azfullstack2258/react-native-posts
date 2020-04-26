@@ -1,38 +1,34 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
 import { CheckBox } from 'react-native-elements';
-import { connect } from 'react-redux';
 
-import { toggleAuthorSelectStatus } from '../redux/reducers/filter';
-import { RootState } from '../redux/reducers';
 import { Author } from '../util/types';
 
 interface AuthorCheckBoxProps {
   info: Author;
-  selectedAuthors: string[];
-  toggleAuthorSelectStatus: (id: string) => void;
+  isChecked: boolean;
+  onPress: (id: string) => void;
 }
 
 class AuthorCheckBox extends React.Component<AuthorCheckBoxProps> {
   handleAuthorSelectChange = () => {
     const {
       info: { id },
-      toggleAuthorSelectStatus,
+      onPress,
     } = this.props;
-    toggleAuthorSelectStatus(id);
+    onPress(id);
   };
 
   render() {
-    const { info, selectedAuthors } = this.props;
+    const { info, isChecked } = this.props;
     const { id, name } = info;
-    const isSelected = selectedAuthors.includes(id);
 
     return (
       <CheckBox
         key={id}
         containerStyle={styles.container}
         title={name}
-        checked={isSelected}
+        checked={isChecked}
         onPress={this.handleAuthorSelectChange}
       />
     );
@@ -45,12 +41,4 @@ const styles = StyleSheet.create({
   },
 });
 
-const mapStateToProps = (state: RootState) => ({
-  selectedAuthors: state.filter.selectedAuthorIds,
-});
-
-const mapDispatchToProps = {
-  toggleAuthorSelectStatus,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(AuthorCheckBox);
+export default AuthorCheckBox;
