@@ -10,7 +10,10 @@ export const getFilteredPosts = createSelector(
   getPosts,
   getSelectedAuthors,
   (posts: Post[], selectedAuthors: string[]) =>
-    posts.filter(({ author: { id } }) => selectedAuthors.includes(id))
+    posts.filter(
+      ({ author: { id } }) =>
+        (selectedAuthors.length === 0 && true) || selectedAuthors.includes(id)
+    )
 );
 
 export const getAuthors = (state: RootState): Author[] => {
