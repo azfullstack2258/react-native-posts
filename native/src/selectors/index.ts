@@ -1,5 +1,17 @@
+import { createSelector } from 'reselect';
 import { RootState } from '../redux/reducers';
-import { Author } from '../util/types';
+import { Author, Post } from '../util/types';
+
+export const getPosts = (state: RootState): Post[] => state.post.posts;
+export const getSelectedAuthors = (state: RootState): string[] =>
+  state.filter.selectedAuthorIds;
+
+export const getFilteredPosts = createSelector(
+  getPosts,
+  getSelectedAuthors,
+  (posts: Post[], selectedAuthors: string[]) =>
+    posts.filter(({ author: { id } }) => selectedAuthors.includes(id))
+);
 
 export const getAuthors = (state: RootState): Author[] => {
   const authors: Author[] = [];
