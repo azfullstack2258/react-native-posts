@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer, RouteProp } from '@react-navigation/native';
 import {
   createStackNavigator,
   StackNavigationOptions,
@@ -13,8 +13,12 @@ import store from './redux/store';
 
 export type RootStackParamList = {
   PostsList: undefined;
-  PostDetail: { postId: string };
+  PostDetail: { postId: string; title: string };
 };
+export type PostDetailScreenRouteProp = RouteProp<
+  RootStackParamList,
+  'PostDetail'
+>;
 
 const Stack = createStackNavigator<RootStackParamList>();
 const staticOptions = (): StackNavigationOptions => ({
@@ -37,7 +41,7 @@ export function App() {
           <Stack.Screen
             name="PostDetail"
             component={PostDetailScreen}
-            options={{ title: 'Post Detaiil' }}
+            options={({ route }) => ({ title: route.params.title })}
           />
         </Stack.Navigator>
       </NavigationContainer>

@@ -6,7 +6,7 @@ interface IPostListItemProps {
   title: string;
   publishedAt: Date;
   author: string;
-  onPress: (id: string) => void;
+  onPress: (id: string, title: string) => void;
 }
 
 const PostListItem: React.FC<IPostListItemProps> = ({
@@ -17,7 +17,7 @@ const PostListItem: React.FC<IPostListItemProps> = ({
   onPress,
 }) => {
   const handlePress = () => {
-    onPress(id);
+    onPress(id, title);
   };
 
   return (

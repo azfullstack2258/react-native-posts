@@ -30,9 +30,9 @@ class PostsList extends React.Component<IPostsListProps> {
     loadPosts();
   }
 
-  handlePostPress = (id: string) => {
+  handlePostPress = (id: string, title: string) => {
     const { navigation } = this.props;
-    navigation.navigate('PostDetail', { postId: id });
+    navigation.navigate('PostDetail', { postId: id, title });
   };
 
   renderPostListItem = ({ item }: any) => {
