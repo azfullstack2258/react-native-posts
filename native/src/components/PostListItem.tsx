@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 interface IPostListItemProps {
   id: string;
@@ -15,11 +15,11 @@ const PostListItem: React.FC<IPostListItemProps> = ({
   author,
 }) => {
   return (
-    <View key={id} style={styles.itemContainer}>
+    <TouchableOpacity key={id} style={styles.itemContainer}>
       <Text>{`Title: ${title}`}</Text>
       <Text>{`Published Date: ${publishedAt.toString()}`}</Text>
       <Text>{`Author: ${author}`}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyleSheet } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 import { connect } from 'react-redux';
 
@@ -29,6 +30,7 @@ class AuthorCheckBox extends React.Component<AuthorCheckBoxProps> {
     return (
       <CheckBox
         key={id}
+        containerStyle={styles.container}
         title={name}
         checked={isSelected}
         onPress={this.handleAuthorSelectChange}
@@ -36,6 +38,12 @@ class AuthorCheckBox extends React.Component<AuthorCheckBoxProps> {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: 'calc(50% - 20px)',
+  },
+});
 
 const mapStateToProps = (state: RootState) => ({
   selectedAuthors: state.filter.selectedAuthorIds,

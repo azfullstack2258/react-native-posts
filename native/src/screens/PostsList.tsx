@@ -54,15 +54,24 @@ class PostsList extends React.Component<IPostsListProps> {
         {isLoading && <Text>Loading...</Text>}
         {!isLoading && (
           <>
-            <View>
-              <Text>Filter by authors</Text>
-              {authors.map(this.renderAuthor)}
+            <View style={styles.filterSection}>
+              <View style={styles.sectionHeader}>
+                <Text style={styles.sectionTitle}>Filter by authors</Text>
+              </View>
+              <View style={styles.authorList}>
+                {authors.map(this.renderAuthor)}
+              </View>
             </View>
-            <FlatList
-              data={posts}
-              renderItem={this.renderPostListItem}
-              keyExtractor={this.postKeyExtractor}
-            />
+            <View style={styles.postSection}>
+              <View style={[styles.sectionHeader, styles.postSectionHeader]}>
+                <Text style={styles.sectionTitle}>Posts</Text>
+              </View>
+              <FlatList
+                data={posts}
+                renderItem={this.renderPostListItem}
+                keyExtractor={this.postKeyExtractor}
+              />
+            </View>
           </>
         )}
       </View>
@@ -73,6 +82,31 @@ class PostsList extends React.Component<IPostsListProps> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  filterSection: {
+    marginBottom: 10,
+  },
+  authorList: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+  },
+  postSection: {
+    flex: 1,
+    backgroundColor: 'white',
+  },
+  postSectionHeader: {
+    borderBottomColor: '#e0e0e0',
+    borderBottomWidth: 1,
+    borderStyle: 'solid',
+  },
+  sectionHeader: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+  sectionTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
   },
 });
 
