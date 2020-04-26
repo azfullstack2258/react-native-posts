@@ -1,24 +1,41 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import {
+  createStackNavigator,
+  StackNavigationOptions,
+} from '@react-navigation/stack';
+import PostsListScreen from './screens/PostsList';
+import PostDetailScreen from './screens/PostDetail';
 import { Provider } from 'react-redux';
 
 import store from './redux/store';
 
+const Stack = createStackNavigator();
+const staticOptions = (): StackNavigationOptions => ({
+  headerTitleAlign: 'center',
+});
+
 export function App() {
   return (
     <Provider store={store}>
-      <View style={styles.container}>
-        <Text>Open up App.tsx to start working on your app!</Text>
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="PostsList"
+          screenOptions={staticOptions}
+        >
+          <Stack.Screen
+            name="PostsList"
+            component={PostsListScreen}
+            options={{ title: 'Posts' }}
+          />
+          <Stack.Screen
+            name="PostDetail"
+            component={PostDetailScreen}
+            options={{ title: 'Post Detaiil' }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
     </Provider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
