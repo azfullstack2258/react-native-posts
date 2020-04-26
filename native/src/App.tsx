@@ -14,10 +14,7 @@ export type RootStackParamList = {
   PostListScreen: undefined;
   PostScreen: { postId: string; title: string };
 };
-export type PostDetailScreenRouteProp = RouteProp<
-  RootStackParamList,
-  'PostScreen'
->;
+export type PostScreenRouteProp = RouteProp<RootStackParamList, 'PostScreen'>;
 
 const Stack = createStackNavigator<RootStackParamList>();
 const staticOptions = (): StackNavigationOptions => ({

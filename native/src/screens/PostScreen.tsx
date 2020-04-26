@@ -4,16 +4,15 @@ import { View, Text, StyleSheet } from 'react-native';
 import Markdown from 'react-native-markdown-renderer';
 import moment from 'moment';
 
-import { PostDetailScreenRouteProp } from '../App';
+import { PostScreenRouteProp } from '../App';
 import { getPosts } from '../selectors';
 import { Post } from '../util/types';
 
-interface PostDetailScreenProps {
-  route: PostDetailScreenRouteProp;
-  posts: Post[];
+interface PostScreenProps {
+  route: PostScreenRouteProp;
 }
 
-const PostDetail: React.FC<PostDetailScreenProps> = ({ route }) => {
+const PostScreen: React.FC<PostScreenProps> = ({ route }) => {
   const { postId } = route.params;
   const posts = useSelector(getPosts);
   const post = posts.find(({ id }) => id === postId);
@@ -60,4 +59,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default PostDetail;
+export default PostScreen;

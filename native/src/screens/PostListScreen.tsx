@@ -16,21 +16,21 @@ import { RootStackParamList } from '../App';
 
 const isIos = Platform.OS === 'ios';
 
-type PostsListScreenNavigationProp = StackNavigationProp<
+type PostListScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
   'PostListScreen'
 >;
-interface IPostsListProps {
+interface IPostListScreenProps {
   isLoading: boolean;
   posts: Post[];
   authors: Author[];
   selectedAuthors: string[];
-  navigation: PostsListScreenNavigationProp;
+  navigation: PostListScreenNavigationProp;
   loadPosts: () => void;
   toggleAuthorSelectStatus: (id: string) => void;
 }
 
-class PostsList extends React.Component<IPostsListProps> {
+class PostListScreen extends React.Component<IPostListScreenProps> {
   componentDidMount() {
     const { loadPosts } = this.props;
     loadPosts();
@@ -80,7 +80,9 @@ class PostsList extends React.Component<IPostsListProps> {
     return (
       <View style={styles.container}>
         {isLoading ? (
-          <Text>Loading...</Text>
+          <View style={styles.loadingWrapper}>
+            <Text style={styles.loadingText}>Loading...</Text>
+          </View>
         ) : (
           <>
             <View style={styles.filterSection}>
@@ -137,6 +139,16 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
   },
+  loadingWrapper: {
+    padding: 20,
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: [{ translateY: -50 }, { translateX: -50 }],
+  },
+  loadingText: {
+    textAlign: 'center',
+  },
 });
 
 const mapStateToProps = (state: RootState) => ({
@@ -151,4 +163,4 @@ const mapDispatchToProps = {
   toggleAuthorSelectStatus,
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PostsList);
+export default connect(mapStateToProps, mapDispatchToProps)(PostListScreen);
