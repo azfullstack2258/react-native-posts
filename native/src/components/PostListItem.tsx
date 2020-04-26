@@ -1,5 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import moment from 'moment';
 
 interface IPostListItemProps {
   id: string;
@@ -26,9 +27,10 @@ const PostListItem: React.FC<IPostListItemProps> = ({
       style={styles.itemContainer}
       onPress={handlePress}
     >
-      <Text>{`Title: ${title}`}</Text>
-      <Text>{`Published Date: ${publishedAt.toString()}`}</Text>
-      <Text>{`Author: ${author}`}</Text>
+      <Text style={styles.postTitle}>{title}</Text>
+      <Text style={styles.postDetail}>
+        {`${author}, ${moment(publishedAt).format('YYYY/MM/DD')}`}
+      </Text>
     </TouchableOpacity>
   );
 };
@@ -40,6 +42,14 @@ const styles = StyleSheet.create({
     borderBottomColor: '#e0e0e0',
     borderBottomWidth: 1,
     borderStyle: 'solid',
+  },
+  postTitle: {
+    fontSize: 20,
+    fontWeight: '500',
+  },
+  postDetail: {
+    fontStyle: 'italic',
+    fontSize: 10,
   },
 });
 
