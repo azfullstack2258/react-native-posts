@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import { Text, View, FlatList, StyleSheet } from 'react-native';
-import { connect } from 'react-redux';
+import { connect, useSelector } from 'react-redux';
 
 import PostListItem from '../components/PostListItem';
 import { loadPosts } from '../redux/reducers/post';
-
+import { getAuthors } from '../selectors';
 // Import types
 import { RootState } from '../redux/reducers';
 import { Post } from '../util/types';
@@ -20,6 +20,7 @@ const PostsList: React.FC<IPostsListProps> = ({
   posts,
   loadPosts,
 }) => {
+  const authors = useSelector(getAuthors);
   useEffect(() => {
     loadPosts();
   }, []);
@@ -51,11 +52,16 @@ const PostsList: React.FC<IPostsListProps> = ({
     <View style={styles.container}>
       {isLoading && <Text>Loading...</Text>}
       {!isLoading && (
-        <FlatList
-          data={posts}
-          renderItem={renderPostListItem}
-          keyExtractor={postKeyExtractor}
-        />
+        <>
+          {authors.map(({ id, name }) => (
+            <Text key={id}>{name}</Text>
+          ))}
+          <FlatList
+            data={posts}
+            renderItem={renderPostListItem}
+            keyExtractor={postKeyExtractor}
+          />
+        </>
       )}
     </View>
   );
