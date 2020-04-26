@@ -6,6 +6,7 @@ interface IPostListItemProps {
   title: string;
   publishedAt: Date;
   author: string;
+  onPress: (id: string) => void;
 }
 
 const PostListItem: React.FC<IPostListItemProps> = ({
@@ -13,9 +14,18 @@ const PostListItem: React.FC<IPostListItemProps> = ({
   title,
   publishedAt,
   author,
+  onPress,
 }) => {
+  const handlePress = () => {
+    onPress(id);
+  };
+
   return (
-    <TouchableOpacity key={id} style={styles.itemContainer}>
+    <TouchableOpacity
+      key={id}
+      style={styles.itemContainer}
+      onPress={handlePress}
+    >
       <Text>{`Title: ${title}`}</Text>
       <Text>{`Published Date: ${publishedAt.toString()}`}</Text>
       <Text>{`Author: ${author}`}</Text>

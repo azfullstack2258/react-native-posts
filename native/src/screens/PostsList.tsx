@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View, FlatList, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
+import { StackNavigationProp } from '@react-navigation/stack';
 
 import PostListItem from '../components/PostListItem';
 import AuthorCheckBox from '../components/AuthorCheckBox';
@@ -9,12 +10,18 @@ import { getAuthors, getFilteredPosts } from '../selectors';
 // Import types
 import { RootState } from '../redux/reducers';
 import { Post, Author } from '../util/types';
+import { RootStackParamList } from '../App';
 
+type PostsListScreenNavigationProp = StackNavigationProp<
+  RootStackParamList,
+  'PostsList'
+>;
 interface IPostsListProps {
   isLoading: boolean;
   posts: Post[];
   loadPosts: Function;
   authors: Author[];
+  navigation: PostsListScreenNavigationProp;
 }
 
 class PostsList extends React.Component<IPostsListProps> {
@@ -22,6 +29,11 @@ class PostsList extends React.Component<IPostsListProps> {
     const { loadPosts } = this.props;
     loadPosts();
   }
+
+  handlePostPress = (id: string) => {
+    const { navigation } = this.props;
+    navigation.navigate('PostDetail', { postId: id });
+  };
 
   renderPostListItem = ({ item }: any) => {
     const {
@@ -36,6 +48,7 @@ class PostsList extends React.Component<IPostsListProps> {
         title={title}
         publishedAt={publishedAt}
         author={name}
+        onPress={this.handlePostPress}
       />
     );
   };

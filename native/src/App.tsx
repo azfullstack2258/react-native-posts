@@ -11,7 +11,12 @@ import { Provider } from 'react-redux';
 
 import store from './redux/store';
 
-const Stack = createStackNavigator();
+export type RootStackParamList = {
+  PostsList: undefined;
+  PostDetail: { postId: string };
+};
+
+const Stack = createStackNavigator<RootStackParamList>();
 const staticOptions = (): StackNavigationOptions => ({
   headerTitleAlign: 'center',
 });
