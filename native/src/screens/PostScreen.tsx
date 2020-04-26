@@ -27,7 +27,6 @@ const PostDetail: React.FC<PostDetailScreenProps> = ({ route }) => {
   }
 
   const {
-    title,
     publishedAt,
     author: { name },
     body,

@@ -1,23 +1,22 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer, RouteProp } from '@react-navigation/native';
 import {
   createStackNavigator,
   StackNavigationOptions,
 } from '@react-navigation/stack';
-import PostsListScreen from './screens/PostsList';
-import PostDetailScreen from './screens/PostDetail';
+import PostListScreen from './screens/PostListScreen';
+import PostScreen from './screens/PostScreen';
 import { Provider } from 'react-redux';
 
 import store from './redux/store';
 
 export type RootStackParamList = {
-  PostsList: undefined;
-  PostDetail: { postId: string; title: string };
+  PostListScreen: undefined;
+  PostScreen: { postId: string; title: string };
 };
 export type PostDetailScreenRouteProp = RouteProp<
   RootStackParamList,
-  'PostDetail'
+  'PostScreen'
 >;
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -30,17 +29,17 @@ export function App() {
     <Provider store={store}>
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="PostsList"
+          initialRouteName="PostListScreen"
           screenOptions={staticOptions}
         >
           <Stack.Screen
-            name="PostsList"
-            component={PostsListScreen}
+            name="PostListScreen"
+            component={PostListScreen}
             options={{ title: 'Posts' }}
           />
           <Stack.Screen
-            name="PostDetail"
-            component={PostDetailScreen}
+            name="PostScreen"
+            component={PostScreen}
             options={({ route }) => ({ title: route.params.title })}
           />
         </Stack.Navigator>

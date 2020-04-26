@@ -18,7 +18,7 @@ const isIos = Platform.OS === 'ios';
 
 type PostsListScreenNavigationProp = StackNavigationProp<
   RootStackParamList,
-  'PostsList'
+  'PostListScreen'
 >;
 interface IPostsListProps {
   isLoading: boolean;
@@ -38,7 +38,7 @@ class PostsList extends React.Component<IPostsListProps> {
 
   handlePostPress = (id: string, title: string) => {
     const { navigation } = this.props;
-    navigation.navigate('PostDetail', { postId: id, title });
+    navigation.navigate('PostScreen', { postId: id, title });
   };
 
   handleAuthorSelectChange = (id: string) => {
