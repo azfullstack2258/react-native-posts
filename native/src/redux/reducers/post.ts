@@ -1,4 +1,4 @@
-import { Action, createAction, handleActions } from 'redux-actions';
+import { createAction, handleActions } from 'redux-actions';
 import { Post } from '../../util/types';
 
 export const actionTypes = {
