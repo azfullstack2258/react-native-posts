@@ -7,25 +7,22 @@ import { loadPosts } from '../redux/reducers/post';
 import { getAuthors } from '../selectors';
 // Import types
 import { RootState } from '../redux/reducers';
-import { Post } from '../util/types';
+import { Post, Author } from '../util/types';
 
 interface IPostsListProps {
   isLoading: boolean;
   posts: Post[];
   loadPosts: Function;
+  authors: Author[];
 }
 
-const PostsList: React.FC<IPostsListProps> = ({
-  isLoading,
-  posts,
-  loadPosts,
-}) => {
-  const authors = useSelector(getAuthors);
-  useEffect(() => {
+class PostsList extends React.Component<IPostsListProps> {
+  componentDidMount() {
+    const { loadPosts } = this.props;
     loadPosts();
-  }, []);
+  }
 
-  const renderPostListItem = ({ item }: any) => {
+  renderPostListItem = ({ item }: any) => {
     const {
       id,
       title,
@@ -42,30 +39,30 @@ const PostsList: React.FC<IPostsListProps> = ({
     );
   };
 
-  const postKeyExtractor = ({ id }: Post) => id;
+  postKeyExtractor = ({ id }: Post) => id;
 
-  if (isLoading) {
-    <View style={styles.container}></View>;
+  renderAuthor = ({ id, name }: Author) => <Text key={id}>{name}</Text>;
+
+  render() {
+    const { isLoading, posts, authors } = this.props;
+
+    return (
+      <View style={styles.container}>
+        {isLoading && <Text>Loading...</Text>}
+        {!isLoading && (
+          <>
+            {authors.map(this.renderAuthor)}
+            <FlatList
+              data={posts}
+              renderItem={this.renderPostListItem}
+              keyExtractor={this.postKeyExtractor}
+            />
+          </>
+        )}
+      </View>
+    );
   }
-
-  return (
-    <View style={styles.container}>
-      {isLoading && <Text>Loading...</Text>}
-      {!isLoading && (
-        <>
-          {authors.map(({ id, name }) => (
-            <Text key={id}>{name}</Text>
-          ))}
-          <FlatList
-            data={posts}
-            renderItem={renderPostListItem}
-            keyExtractor={postKeyExtractor}
-          />
-        </>
-      )}
-    </View>
-  );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -76,6 +73,7 @@ const styles = StyleSheet.create({
 const mapStateToProps = (state: RootState) => ({
   isLoading: state.post.isLoading,
   posts: state.post.posts,
+  authors: getAuthors(state),
 });
 
 const mapDispatchToProps = {
