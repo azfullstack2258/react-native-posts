@@ -1,14 +1,3 @@
-silverorange React Native Developer Assessment
-==============================================
-
-This exercise is designed to assess how you approach tasks required in your
-position as a React Native developer at silverorange. We are interested to see
-how you work as well, as what your final results are; include useful Git commit
-messages and comments where you think your code may be unclear.
-
-Please do not include your name or any other self-identifying information in
-code or commit messages as silverorange will anonymize your work before
-reviewing.
 
 Tasks
 -----
@@ -52,26 +41,16 @@ TypeScript but you may use vanilla JavaScript to complete the tasks.
 
 Coding Standard
 ---------------
-Please use [Prettier](https://prettier.io/)
-for your code. If your editor is not already configured to use Prettier, you can format code
-in the project using:
+[Prettier](https://prettier.io/)
 ```sh
 yarn prettier-write
 ```
 
 Dependencies
 ------------
-Please use the [Yarn](https://yarnpkg.com/) or
+[Yarn](https://yarnpkg.com/) or
 [NPM](https://docs.npmjs.com/cli/npm) tools for dependency
-management. You can use any 3rd-party libraries as necessary or as desired in
-order to achieve the tasks. The project is currently set up to use Yarn but
-you may update it to use NPM if that is your preference.
-
-Commits
--------
-Your commit history is important to us! Try to make meaningful commit messages
-that show your progress. Remember to not include your name or any other
-self-identifying information in your commit messages.
+management.
 
 Getting Started With the Express Backend (/api)
 -----------------------------------------------
